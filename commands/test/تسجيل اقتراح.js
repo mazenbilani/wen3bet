@@ -37,3 +37,19 @@ Api.forwardMessage({
 });
 */
 
+const options = {
+  method: 'POST',
+  headers: {Accept: 'application/json', 'Content-Type': 'application/json'},
+  body: JSON.stringify({
+    message_id: null,
+    disable_notification: false,
+    from_chat_id: '@Web3betmanagerBot',
+    chat_id: '@wem3bet'
+  })
+};
+
+fetch('https://api.telegram.org/bottoken/forwardMessage', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+
